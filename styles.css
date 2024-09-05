@@ -54,7 +54,6 @@ header {
     height: 4px;
     border-radius: 5px;
     background-color: var(--bg-color-one);
-    transition: background-color 0.3s;
 }
 
 .navigation {
@@ -87,22 +86,43 @@ header {
     letter-spacing: 1px;
     font-size: var(--content-text);
     color: var(--bg-color-one);
-    padding: 10px 16px;
+    padding: 10px 12px;
+    position: relative;
+}
+
+.navigation .nav-links li a::after{
+    content: "";
+    position: absolute;
+    background-color: #A04747;
+    width: 0;
+    height: 3px;
+    left: 0;
+    bottom: 0;
+    transition: .3s;
+}
+
+.navigation .nav-links li a:hover::after, 
+.navigation .nav-links li a:focus::after    {
+    width: 100%;
 }
 
 .navigation .nav-links.menu {
-    display: none;
+    display: flex;
     flex-direction: column;
     width: 100%;
     background-color: var(--bg-color-four);
     position: absolute;
     top: 60px;
     left: 0;
-    padding: 1rem;
+    padding: 0;
+    overflow: hidden; /* Ensures content stays hidden when the height is zero */
+    height: 0; /* Set initial height to 0 */
+    transition: height 0.3s ease, padding 0.3s ease;
 }
 
 .navigation.active .nav-links.menu {
-    display: flex;
+    height: 250px; /* Adjust height to the size you want when expanded */
+    padding: 1rem;
 }
 
 @media (min-width: 850px) {
