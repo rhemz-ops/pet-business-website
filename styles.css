@@ -125,23 +125,45 @@ header {
     padding: 1rem;
 }
 
+/* For larger screens (desktop) */
 @media (min-width: 850px) {
-    .hamburger {
-        display: none;
+    .navigation {
+        display: flex;
+        justify-content: space-between; /* Ensure spacing between logo and nav links */
+        align-items: center; /* Vertically center the logo and links */
+    }
+
+    .navigation h3 {
+        flex-shrink: 0; /* Prevent the logo from shrinking */
+        font-size: var(--main-headings);
+        color: var(--bg-color-two);
+        white-space: nowrap; /* Prevent the logo from wrapping */
     }
 
     .navigation .nav-links {
         display: flex;
         flex-direction: row;
+        justify-content: flex-end; /* Align links to the right */
+        gap: 1rem; /* Add some space between the links */
         position: static;
+        height: auto; /* Remove height restrictions */
+        padding: 0; /* No extra padding */
+        background-color: transparent; /* Ensure background is transparent */
+        width: auto;
     }
 
     .navigation .nav-links.menu {
-        display: flex;
-        position: static;
+        display: flex; /* Ensure links are displayed properly */
         flex-direction: row;
-        background-color: transparent;
+        height: auto;
         padding: 0;
-        width: auto;
+        position: static;
+        background-color: transparent;
+    }
+
+    /* Ensure hamburger is hidden on larger screens */
+    .hamburger {
+        display: none;
     }
 }
+
