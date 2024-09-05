@@ -1,0 +1,127 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+:root {
+    --content-text: clamp(1rem, 1.2vw + 0.8rem, 1.2rem);
+    --sub-headings: clamp(1.25rem, 1.5vw + 0.75rem, 1.75rem);
+    --main-headings: clamp(1.5rem, 2vw + 1rem, 2.5rem);
+    --big-headings: clamp(2rem, 3vw + 1.5rem, 3.5rem);
+
+    --bg-color-one: #343131;
+    --bg-color-two: #A04747;
+    --bg-color-three: #D8A25E;
+    --bg-color-four: #EEDF7A;
+    --text-color: #f5f5f5;
+
+    --bold-600: 600;
+    --bold-700: 700;
+    --bold-800: 800;
+}
+
+input, select, textarea, button {
+    font: inherit;
+}
+
+body {
+    line-height: 1.5;
+    font-size: var(--content-text);
+}
+
+header {
+    background-color: var(--bg-color-four);
+    color: var(--bg-color-one);
+    padding: 1rem;
+}
+
+.hamburger {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+}
+
+.hamburger span {
+    display: block;
+    width: 100%;
+    height: 4px;
+    border-radius: 5px;
+    background-color: var(--bg-color-one);
+    transition: background-color 0.3s;
+}
+
+.navigation {
+    margin: 0 auto;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navigation h3 {
+    font-size: var(--main-headings);
+    color: var(--bg-color-two)
+}
+
+.navigation .nav-links {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-direction: column;
+}
+
+.navigation .nav-links li {
+    list-style: none;
+}
+
+.navigation .nav-links li a {
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: var(--content-text);
+    color: var(--bg-color-one);
+    padding: 10px 16px;
+}
+
+.navigation .nav-links.menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: var(--bg-color-four);
+    position: absolute;
+    top: 60px;
+    left: 0;
+    padding: 1rem;
+}
+
+.navigation.active .nav-links.menu {
+    display: flex;
+}
+
+@media (min-width: 850px) {
+    .hamburger {
+        display: none;
+    }
+
+    .navigation .nav-links {
+        display: flex;
+        flex-direction: row;
+        position: static;
+    }
+
+    .navigation .nav-links.menu {
+        display: flex;
+        position: static;
+        flex-direction: row;
+        background-color: transparent;
+        padding: 0;
+        width: auto;
+    }
+}
