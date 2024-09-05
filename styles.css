@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: 'wotfardregular', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 :root {
@@ -15,6 +15,7 @@
     --bg-color-two: #A04747;
     --bg-color-three: #D8A25E;
     --bg-color-four: #EEDF7A;
+    --light-bg-color: #F5F7F8;
     --text-color: #f5f5f5;
 
     --bold-600: 600;
@@ -26,15 +27,27 @@ input, select, textarea, button {
     font: inherit;
 }
 
+@font-face {
+    font-family: 'wotfardregular';
+    src: url('fonts/wotfard-regular-webfont.woff2') format('woff2'),
+         url('fonts/wotfard-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 body {
     line-height: 1.5;
     font-size: var(--content-text);
+    font-family: 'wotfardregular';
+    background-color: var(--light-bg-color);
 }
+
 
 header {
     background-color: var(--bg-color-four);
     color: var(--bg-color-one);
-    padding: 1rem;
+    padding-inline: 1rem;
 }
 
 .hamburger {
@@ -62,6 +75,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    
 }
 
 .navigation h3 {
@@ -74,6 +88,7 @@ header {
     gap: 1rem;
     align-items: center;
     flex-direction: column;
+    z-index: 2;
 }
 
 .navigation .nav-links li {
@@ -83,22 +98,27 @@ header {
 .navigation .nav-links li a {
     text-decoration: none;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     font-size: var(--content-text);
+    font-weight: var(--bold-800);
+    font-family: 'wotfardregular';
     color: var(--bg-color-one);
-    padding: 10px 12px;
     position: relative;
+    padding: 10px 14px;
 }
 
 .navigation .nav-links li a::after{
     content: "";
     position: absolute;
-    background-color: #A04747;
+    border-bottom: 3px solid #A04747;
     width: 0;
-    height: 3px;
+    height: 100%;
     left: 0;
+    right: 0;
+    margin-inline: auto;
     bottom: 0;
     transition: .3s;
+    z-index: 2;
 }
 
 .navigation .nav-links li a:hover::after, 
@@ -112,58 +132,160 @@ header {
     width: 100%;
     background-color: var(--bg-color-four);
     position: absolute;
-    top: 60px;
+    top: 30px;
     left: 0;
     padding: 0;
-    overflow: hidden; /* Ensures content stays hidden when the height is zero */
-    height: 0; /* Set initial height to 0 */
+    overflow: hidden;
+    height: 0;
     transition: height 0.3s ease, padding 0.3s ease;
 }
 
 .navigation.active .nav-links.menu {
-    height: 250px; /* Adjust height to the size you want when expanded */
-    padding: 1rem;
+    height: 250px; 
+    padding: 8px 12px;
 }
 
-/* For larger screens (desktop) */
 @media (min-width: 850px) {
     .navigation {
         display: flex;
-        justify-content: space-between; /* Ensure spacing between logo and nav links */
-        align-items: center; /* Vertically center the logo and links */
+        justify-content: space-between;
+        align-items: center;
     }
 
     .navigation h3 {
-        flex-shrink: 0; /* Prevent the logo from shrinking */
+        flex-shrink: 0;
         font-size: var(--main-headings);
         color: var(--bg-color-two);
-        white-space: nowrap; /* Prevent the logo from wrapping */
+        white-space: nowrap;
     }
 
     .navigation .nav-links {
         display: flex;
         flex-direction: row;
-        justify-content: flex-end; /* Align links to the right */
-        gap: 1rem; /* Add some space between the links */
+        justify-content: flex-end;
+        gap: 1rem;
         position: static;
-        height: auto; /* Remove height restrictions */
-        padding: 0; /* No extra padding */
-        background-color: transparent; /* Ensure background is transparent */
+        height: auto;
+        padding: 0; 
         width: auto;
     }
 
     .navigation .nav-links.menu {
-        display: flex; /* Ensure links are displayed properly */
+        display: flex; 
         flex-direction: row;
         height: auto;
-        padding: 0;
+        padding: 1rem;
         position: static;
         background-color: transparent;
     }
 
-    /* Ensure hamburger is hidden on larger screens */
     .hamburger {
         display: none;
     }
+}
+
+
+main {
+    color: var(--light-bg-color);
+    z-index: -2;
+}
+
+@keyframes fadeInSlide {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.main-header {
+    min-height: 100vh;
+    background-color: var(--bg-color-two);
+    border-radius: 0 0 20% 20%;
+    background-image: url("./images/young-couple-looking-their-cute-dog-park.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    gap: 1rem;
+    text-align: center;
+    z-index: 1;
+    box-shadow: 0px 4px 4px 2px black;
+}
+
+.main-header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: black;
+    opacity: .3;
+    border-radius: 0 0 20% 20%;
+    z-index: -12;
+}
+
+.main-header .main-header-text h1 {
+    font-family: 'wotfardregular';
+    font-size: var(--big-headings);
+    font-weight: var(--bold-800);
+    /* text-transform: uppercase; */
+    opacity: 0;
+    animation: fadeInSlide 1s ease-in-out forwards;
+    animation-delay: .75s;
+}
+
+.main-header img {
+    filter: invert(100%);
+    opacity: 0;
+    animation: fadeInSlide 1s ease-in-out forwards;
+}
+
+.main-header button {
+    cursor: pointer;
+    border:none;
+    border-radius: 24px;
+    background-color: var(--bg-color-two);
+    color: var(--bg-color-four);
+    margin-top: 1rem;
+    padding: 12px 24px;
+    text-transform: uppercase;
+    font-weight: var(--bold-800);
+    letter-spacing: 2px;
+    transition: .3s;
+    opacity: 0;
+    animation: fadeInSlide 1s ease-in-out forwards;
+    animation-delay: 1s;
+}
+
+.main-header button:hover {
+    box-shadow: 8px 8px 4px 2px black;
+    transform: translateY(-5px);
+}
+
+
+.main-container {
+    border: 2px solid green;
+    width: min(90%, 1200px);
+    margin: 0 auto;
 }
 
