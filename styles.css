@@ -79,13 +79,40 @@ body {
 
 .side-bar svg {
     width: 40px;
-    fill: var(--bg-color-four); 
+    fill: var(--bg-color-four);
+    transition: fill .3s; 
 }
 
-header {
+.side-bar a:nth-child(1) svg:hover {
+    fill: #1877F2;
+}
+
+.side-bar a:nth-child(2) svg:hover {
+    fill: #037e18;
+}
+
+.side-bar a:nth-child(3) svg:hover {
+    fill: #c71610;
+}
+
+.side-bar a:nth-child(4) svg:hover {
+    fill: #f0b240;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
     background-color: var(--bg-color-one);
     color: var(--bg-color-four);
     padding-inline: 1rem;
+    transition: transform 0.3s ease;
+    z-index: 1000;
+}
+
+.header.hidden {
+    transform: translateY(-100%); /* Hide the header */
 }
 
 .hamburger {
