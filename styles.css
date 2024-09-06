@@ -45,8 +45,8 @@ body {
 
 
 header {
-    background-color: var(--bg-color-four);
-    color: var(--bg-color-one);
+    background-color: var(--bg-color-one);
+    color: var(--bg-color-four);
     padding-inline: 1rem;
 }
 
@@ -59,6 +59,7 @@ header {
     justify-content: space-between;
     width: 30px;
     height: 20px;
+    
 }
 
 .hamburger span {
@@ -66,7 +67,8 @@ header {
     width: 100%;
     height: 4px;
     border-radius: 5px;
-    background-color: var(--bg-color-one);
+    background-color: var(--bg-color-four);
+    
 }
 
 .navigation {
@@ -97,14 +99,17 @@ header {
 
 .navigation .nav-links li a {
     text-decoration: none;
-    text-transform: uppercase;
     letter-spacing: 2px;
     font-size: var(--content-text);
     font-weight: var(--bold-800);
     font-family: 'wotfardregular';
-    color: var(--bg-color-one);
+    color: var(--bg-color-four);
     position: relative;
     padding: 10px 14px;
+}
+
+.navigation .nav-links li a:hover {
+    color: #ffee83;
 }
 
 .navigation .nav-links li a::after{
@@ -130,19 +135,22 @@ header {
     display: flex;
     flex-direction: column;
     width: 100%;
-    background-color: var(--bg-color-four);
+    background-color: var(--bg-color-one);
     position: absolute;
-    top: 30px;
+    top: 34px;
     left: 0;
     padding: 0;
     overflow: hidden;
     height: 0;
     transition: height 0.3s ease, padding 0.3s ease;
+ 
 }
 
 .navigation.active .nav-links.menu {
     height: 250px; 
     padding: 8px 12px;
+    padding-bottom: 0;
+    box-shadow: 4px 4px 4px 2px rgb(0, 0, 0);
 }
 
 @media (min-width: 850px) {
@@ -212,7 +220,6 @@ main {
 
 .main-header {
     min-height: 100vh;
-    background-color: var(--bg-color-two);
     border-radius: 0 0 20% 20%;
     background-image: url("./images/young-couple-looking-their-cute-dog-park.jpg");
     background-position: center;
@@ -220,12 +227,9 @@ main {
     background-repeat: no-repeat;
     position: relative;
     overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: start;
-    gap: 1rem;
     text-align: center;
+    display: grid;
+    place-content: center;
     z-index: 1;
     box-shadow: 0px 4px 4px 2px black;
 }
@@ -241,10 +245,10 @@ main {
     background-color: black;
     opacity: .3;
     border-radius: 0 0 20% 20%;
-    z-index: -12;
+    z-index: -1;
 }
 
-.main-header .main-header-text h1 {
+.main-header .main-header-content h1 {
     font-family: 'wotfardregular';
     font-size: var(--big-headings);
     font-weight: var(--bold-800);
@@ -258,6 +262,8 @@ main {
     filter: invert(100%);
     opacity: 0;
     animation: fadeInSlide 1s ease-in-out forwards;
+    width: clamp(400px, 100%, 600px);
+    height: auto;
 }
 
 .main-header button {
@@ -266,19 +272,19 @@ main {
     border-radius: 24px;
     background-color: var(--bg-color-two);
     color: var(--bg-color-four);
-    margin-top: 1rem;
+    margin-top: 2rem;
     padding: 12px 24px;
     text-transform: uppercase;
     font-weight: var(--bold-800);
     letter-spacing: 2px;
-    transition: .3s;
+    transition: transform .3s ease;
     opacity: 0;
-    animation: fadeInSlide 1s ease-in-out forwards;
+    animation: fadeIn 1s ease-in-out forwards;
     animation-delay: 1s;
 }
 
 .main-header button:hover {
-    box-shadow: 8px 8px 4px 2px black;
+    background-color: #b44f4f;
     transform: translateY(-5px);
 }
 
