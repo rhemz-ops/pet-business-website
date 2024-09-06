@@ -25,13 +25,22 @@ html::-webkit-scrollbar-track {
     --main-headings: clamp(1.5rem, 2vw + 1rem, 2.5rem);
     --big-headings: clamp(2rem, 3vw + 1.5rem, 3.5rem);
 
-    --bg-color-one: #343131;
-    --bg-color-two: #A04747;
-    --bg-color-three: #D8A25E;
-    --bg-color-four: #EEDF7A;
-    --light-bg-color: #F5F7F8;
-    --text-color: #f5f5f5;
-    --text-color: #636363;
+    --bg-color-one: #F7F7F7;
+    --bg-color-two: #EEEEEE;
+    --bg-color-three: #393E46;
+    --bg-color-four: #929AAB;
+
+    --text-color-one: #000000;
+    --text-color-two: #353535;
+    --text-color-three: #ffffff;
+
+    --heading-color-one: #fca311;
+    --heading-color-two: #e07a5f;
+
+    --icon-color-one: #588157;
+    --icon-color-two: #d62828;
+    --icon-color-three: #a0c4ff;
+    --icon-color-four: #7f5539;
 
     --bold-600: 600;
     --bold-700: 700;
@@ -55,14 +64,14 @@ body {
     line-height: 1.5;
     font-size: var(--content-text);
     font-family: 'wotfardregular';
-    background-color: var(--light-bg-color);
+    background-color: var(--bg-color-one);
     position: relative;
 }
 
 
 .side-bar {
     position: fixed;
-    border: 3px solid var(--bg-color-four);
+    border: 3px solid var(--bg-color-three);
     border-radius: 25px 25px 0 0;
     border-bottom: none;
     background-color: var(--bg-color-one);
@@ -79,7 +88,7 @@ body {
 
 .side-bar svg {
     width: 40px;
-    fill: var(--bg-color-four);
+    fill: var(--bg-color-three);
     transition: fill .3s; 
 }
 
@@ -132,7 +141,7 @@ body {
     width: 100%;
     height: 3px;
     border-radius: 5px;
-    background-color: var(--bg-color-four);
+    background-color: var(--bg-color-three);
     
 }
 
@@ -168,13 +177,13 @@ body {
     font-size: var(--content-text);
     font-weight: var(--bold-800);
     font-family: 'wotfardregular';
-    color: var(--bg-color-four);
+    color: var(--bg-color-three);
     position: relative;
     padding: 10px 14px;
 }
 
 .navigation .nav-links li a:hover {
-    color: #ffee83;
+    color:#615b5b;
 }
 
 .navigation .nav-links li a::after{
@@ -202,7 +211,7 @@ body {
     width: 100%;
     background-color: var(--bg-color-one);
     position: absolute;
-    top: 34px;
+    top: 30px;
     left: 0;
     padding: 0;
     overflow: hidden;
@@ -212,10 +221,9 @@ body {
 }
 
 .navigation.active .nav-links.menu {
-    height: 250px; 
-    padding: 8px 12px;
-    padding-bottom: 0;
-    box-shadow: 4px 4px 4px 2px rgb(0, 0, 0);
+    height: 200px;
+    /* padding-block: 1rem;  */
+    box-shadow: 0px 4px 4px rgb(0, 0, 0);
 }
 
 main {
@@ -245,18 +253,19 @@ main {
 
 .main-header {
     min-height: 100vh;
-    background-image: url("./images/young-couple-looking-their-cute-dog-park.jpg");
+    background-image: url("./images/young-couple-looking-their-cute-dog-park.webp");
     background-color: var(--bg-color-one);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+    background-attachment: fixed;
     position: relative;
     overflow: hidden;
     text-align: center;
     display: grid;
     place-content: center;
     z-index: 1;
-    box-shadow: 0px 4px 4px 2px black;
+    /* box-shadow: 0px 4px 4px 2px black; */
 }
 
 .main-header::before {
@@ -267,12 +276,13 @@ main {
     right: 0;
     bottom: 0;
     width: 100%;
-    background-color: black;
-    opacity: .4;
+    background-color: var(--bg-color-three);
+    opacity: .3;
     z-index: -1;
 }
 
 .main-header .main-header-content h1 {
+    color: var(--text-color-three);
     font-family: 'wotfardregular';
     font-size: var(--big-headings);
     font-weight: var(--bold-800);
@@ -294,8 +304,8 @@ main {
     cursor: pointer;
     border:none;
     border-radius: 24px;
-    background-color: var(--bg-color-two);
-    color: var(--bg-color-four);
+    background-color: var(--bg-color-one);
+    color: var(--bg-color-three);
     margin-top: 2rem;
     padding: 12px 24px;
     text-transform: uppercase;
@@ -308,7 +318,8 @@ main {
 }
 
 .main-header button:hover {
-    background-color: #b44f4f;
+    background-color: var(--bg-color-three);
+    color: var(--bg-color-one);
     transform: translateY(-5px);
 }
 
@@ -341,10 +352,7 @@ main {
 }
 
 .main-container .banner {
-    background-image: url(./images/repeating-banner.jpg);
-    background-position: center;
-    background-repeat: repeat;
-    background-size: contain;
+
     border-bottom: 1px solid var(--bg-color-one);
     text-align: center;
     position: relative;
@@ -354,9 +362,9 @@ main {
 
 .main-container .banner::before {
     content: "";
-    background-color: #ffffff;
+    background-color: var(--bg-color-one);
     position: absolute;
-    opacity: 0.08;
+    opacity: 0.03;
     top: 0;
     left: 0;
     right: 0;
@@ -373,20 +381,22 @@ main {
 
 
 .main-container .banner .banner-svg svg {
-    fill: var(--bg-color-two);
+    fill: rgb(151, 86, 86);
     filter: drop-shadow(0px 0px 4px rgb(102, 102, 102));
     max-width: 100%;
-    stroke: var(--bg-color-one);
+    stroke: var(--bg-color-three);
+    stroke-width: .5;
 
 }
 
 .main-container .banner .banner-text h3 {
     font-size: var(--sub-headings);
-    color: black;
+    color: var(--text-color-two);
+    margin-bottom: 1rem;
 }
 
 .main-container .banner .banner-text p {
-    margin-top: 1rem;
+    
     margin-inline: 1rem;
     font-size: var(--content-text);
     color: var(--text-color);
@@ -396,12 +406,73 @@ main {
     min-height: 20vh;
 }
 
+.scroller {
+    max-width: 1200px;
+    margin: 3rem auto;
+  }
+  
+  .scroller__inner {
+    padding-block: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    border: 3px solid black;
+  }
+
+  .scroller__inner img {
+    width: 200px;
+    border-radius: 20px;
+  }
+  
+  .scroller[data-animated="true"] {
+    overflow: hidden;
+    -webkit-mask: linear-gradient(
+      90deg,
+      transparent,
+      white 20%,
+      white 80%,
+      transparent
+    );
+    mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
+  }
+  
+  .scroller[data-animated="true"] .scroller__inner {
+    width: max-content;
+    flex-wrap: nowrap;
+    animation: scroll var(--_animation-duration, 40s)
+      var(--_animation-direction, forwards) linear infinite;
+  }
+  
+  .scroller[data-direction="right"] {
+    --_animation-direction: reverse;
+  }
+  
+  .scroller[data-direction="left"] {
+    --_animation-direction: forwards;
+  }
+  
+  .scroller[data-speed="fast"] {
+    --_animation-duration: 20s;
+  }
+  
+  .scroller[data-speed="slow"] {
+    --_animation-duration: 60s;
+  }
+  
+  @keyframes scroll {
+    to {
+      transform: translate(calc(-50% - 0.5rem));
+    }
+  }
 
 .why-us {
+    background-image: url(./images/repeating-banner.jpg);
+    background-position: center;
+    background-repeat: repeat;
+    background-size: contain;
     color: black;
     text-align: center;
-    max-width: 1200px;
-    margin: 0 auto 3rem;
+    
     padding: 10px;
     overflow: hidden;
 }
@@ -409,6 +480,8 @@ main {
 .why-us .cards {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    max-width: 1200px;
+    margin: 0 auto 3rem;
     gap: 1rem;
 }
 
@@ -419,8 +492,8 @@ main {
 
 
 .cards .card {
-    background-color: var(--bg-color-one);
-    box-shadow: 8px 8px 4px rgb(145, 145, 145);
+    background-color: var(--bg-color-two);
+    box-shadow: -4px -4px 1px white, 4px 4px 1px rgb(145, 145, 145);
     border-radius: 12px;
     padding: 15px;
     width: 100%;
@@ -470,23 +543,39 @@ main {
 }
 
 .card-icon svg {
-    fill: var(--light-bg-color);
+    fill: var(--bg-color-three);
     width: 70px;
     height: 70px;
     max-width: 100%;
-    
 }
+
+.card-icon .red {
+    fill: var(--icon-color-two);
+}
+
+.card-icon .green {
+    fill: var(--icon-color-one);
+}
+
+.card-icon .blue {
+    fill: var(--icon-color-two);
+}
+
+.card-icon .brown {
+    fill: var(--icon-color-four);
+}
+
 
 .card-title {
     font-size: var(--sub-headings);
     font-weight: var(--bold-600);
-    color: var(--bg-color-three);
+    color: var(--heading-color-two);
     margin: 10px 0;
 }
 
 .card-description {
-    font-size: var(--content-text);
-    color: white;
+    font-size: var(--content-four);
+    color: var(--text-color-two);
 }
     
 
@@ -547,7 +636,7 @@ main {
         bottom: 5rem;
         transform: none;
         border-radius: 0 24px 24px 0;
-        border: 3px solid var(--bg-color-four);
+        border: 3px solid var(--bg-color-three);
     }
 
     .why-us .cards {
