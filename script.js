@@ -14,13 +14,30 @@ document.addEventListener("DOMContentLoaded", () => {
     const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('animate'); // Add the class that triggers the animation
-                observer.unobserve(entry.target); // Stop observing once it's in view
+                entry.target.classList.add('animate');
+                observer.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.1 }); // Start the animation when 10% of the element is in view
+    }, { threshold: 0.1 });
 
     animatedElements.forEach(element => {
+        observer.observe(element);
+    });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    const animatedCards = document.querySelectorAll('.card-animated');
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('slide-in');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    animatedCards.forEach(element => {
         observer.observe(element);
     });
 });

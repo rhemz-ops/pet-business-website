@@ -20,7 +20,7 @@ html::-webkit-scrollbar-track {
 
 
 :root {
-    --content-text: clamp(1rem, 1.2vw + 0.8rem, 1.2rem);
+    --content-text: clamp(0.9rem, 1.2vw + 0.8rem, 1rem);
     --sub-headings: clamp(1.25rem, 1.5vw + 0.75rem, 1.75rem);
     --main-headings: clamp(1.5rem, 2vw + 1rem, 2.5rem);
     --big-headings: clamp(2rem, 3vw + 1.5rem, 3.5rem);
@@ -31,6 +31,7 @@ html::-webkit-scrollbar-track {
     --bg-color-four: #EEDF7A;
     --light-bg-color: #F5F7F8;
     --text-color: #f5f5f5;
+    --text-color: #636363;
 
     --bold-600: 600;
     --bold-700: 700;
@@ -71,31 +72,15 @@ body {
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 400px;
+    width: 100%;
     margin-inline: auto;
     z-index: 100;
 }
 
 .side-bar svg {
-    width: 35px;
-    fill: var(--bg-color-four);
+    width: 40px;
+    fill: var(--bg-color-four); 
 }
-
-/* .side-bar .facebook {
-    fill: blue;
-}
-
-.side-bar .phone {
-    fill: rgb(92, 180, 5);
-}
-
-.side-bar .gmail{
-    fill: #df3b3b;
-}
-
-.side-bar .instagram {
-    fill: #833ab4;
-} */
 
 header {
     background-color: var(--bg-color-one);
@@ -273,7 +258,7 @@ main {
     filter: invert(100%);
     opacity: 0;
     animation: fadeInSlide 1s ease-in-out forwards;
-    width: clamp(400px, 100%, 600px);
+    width: clamp(250px, 100%, 600px);
     height: auto;
 }
 
@@ -302,7 +287,6 @@ main {
 
 .main-container {
     margin: 0 auto;
-    color: black;
 }
 
 @keyframes fadeSlideUp {
@@ -318,8 +302,8 @@ main {
 
 
 .animated-element {
-    opacity: 0; /* Start invisible */
-    transform: translateY(30px); /* Start with an offset */
+    opacity: 0;
+    transform: translateY(30px);
     transition: opacity 0.5s ease, transform 0.5s ease;
   }
 
@@ -333,6 +317,7 @@ main {
     background-position: center;
     background-repeat: repeat;
     background-size: contain;
+    border-bottom: 1px solid var(--bg-color-one);
     text-align: center;
     position: relative;
     padding-bottom: 2rem;
@@ -341,9 +326,9 @@ main {
 
 .main-container .banner::before {
     content: "";
-    background-color: black;
+    background-color: #ffffff;
     position: absolute;
-    opacity: 0.03;
+    opacity: 0.08;
     top: 0;
     left: 0;
     right: 0;
@@ -355,23 +340,127 @@ main {
 .main-container .banner .banner-svg {
     max-width: 300px;
     margin: 0 auto;
-    
 }
 
-.main-container svg {
+
+
+.main-container .banner .banner-svg svg {
     fill: var(--bg-color-two);
+    filter: drop-shadow(0px 0px 4px rgb(102, 102, 102));
     max-width: 100%;
+    stroke: var(--bg-color-one);
+
+}
+
+.main-container .banner .banner-text h3 {
+    font-size: var(--sub-headings);
+    color: black;
 }
 
 .main-container .banner .banner-text p {
     margin-top: 1rem;
     margin-inline: 1rem;
+    font-size: var(--content-text);
+    color: var(--text-color);
 }
 
 .main-container .card-sec {
     min-height: 20vh;
 }
 
+
+.why-us {
+    color: black;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto 3rem;
+    padding: 10px;
+    overflow: hidden;
+}
+
+.why-us .cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.why-us h3 {
+    font-size: var(--sub-headings);
+    padding: 1rem;
+}
+
+
+.cards .card {
+    background-color: var(--bg-color-one);
+    box-shadow: 8px 8px 4px rgb(145, 145, 145);
+    border-radius: 12px;
+    padding: 15px;
+    width: 100%;
+    text-align: left;
+
+}
+
+@keyframes slideRight {
+    0% {
+      opacity: 0;
+      transform: translateX(-500px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+.card-animated {
+    opacity: 0;
+    transform: translateX(30px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+
+.slide-in:nth-child(1) {
+    animation: slideRight 0.8s forwards ease;
+    animation-delay: .5s;
+}
+
+.slide-in:nth-child(2) {
+    animation: slideRight 0.8s forwards ease;
+    animation-delay: .6s;
+}
+
+.slide-in:nth-child(3) {
+    animation: slideRight 0.8s forwards ease;
+    animation-delay: .7s;
+}
+
+.slide-in:nth-child(4) {
+    animation: slideRight 0.8s forwards ease;
+    animation-delay: .8s;
+}
+
+.card-icon {
+    text-align: center;
+}
+
+.card-icon svg {
+    fill: var(--light-bg-color);
+    width: 70px;
+    height: 70px;
+    max-width: 100%;
+    
+}
+
+.card-title {
+    font-size: var(--sub-headings);
+    font-weight: var(--bold-600);
+    color: var(--bg-color-three);
+    margin: 10px 0;
+}
+
+.card-description {
+    font-size: var(--content-text);
+    color: white;
+}
+    
 
 
 
@@ -431,6 +520,11 @@ main {
         transform: none;
         border-radius: 0 24px 24px 0;
         border: 3px solid var(--bg-color-four);
+    }
+
+    .why-us .cards {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
     }
 }
 
