@@ -219,6 +219,7 @@ main {
 .main-header {
     min-height: 100vh;
     background-image: url("./images/young-couple-looking-their-cute-dog-park.jpg");
+    background-color: var(--bg-color-one);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
