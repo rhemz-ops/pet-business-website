@@ -41,8 +41,47 @@ body {
     font-size: var(--content-text);
     font-family: 'wotfardregular';
     background-color: var(--light-bg-color);
+    position: relative;
 }
 
+
+.side-bar {
+    position: fixed;
+    border: 3px solid var(--bg-color-four);
+    border-radius: 25px 25px 0 0;
+    border-bottom: none;
+    background-color: var(--bg-color-one);
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 10px;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 400px;
+    margin-inline: auto;
+    z-index: 100;
+}
+
+.side-bar svg {
+    width: 35px;
+    fill: var(--bg-color-four);
+}
+
+/* .side-bar .facebook {
+    fill: blue;
+}
+
+.side-bar .phone {
+    fill: rgb(92, 180, 5);
+}
+
+.side-bar .gmail{
+    fill: #df3b3b;
+}
+
+.side-bar .instagram {
+    fill: #833ab4;
+} */
 
 header {
     background-color: var(--bg-color-one);
@@ -65,7 +104,7 @@ header {
 .hamburger span {
     display: block;
     width: 100%;
-    height: 4px;
+    height: 3px;
     border-radius: 5px;
     background-color: var(--bg-color-four);
     
@@ -82,7 +121,7 @@ header {
 
 .navigation h3 {
     font-size: var(--main-headings);
-    color: var(--bg-color-two)
+    color: var(--bg-color-three)
 }
 
 .navigation .nav-links {
@@ -153,46 +192,6 @@ header {
     box-shadow: 4px 4px 4px 2px rgb(0, 0, 0);
 }
 
-@media (min-width: 850px) {
-    .navigation {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .navigation h3 {
-        flex-shrink: 0;
-        font-size: var(--main-headings);
-        color: var(--bg-color-two);
-        white-space: nowrap;
-    }
-
-    .navigation .nav-links {
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-end;
-        gap: 1rem;
-        position: static;
-        height: auto;
-        padding: 0; 
-        width: auto;
-    }
-
-    .navigation .nav-links.menu {
-        display: flex; 
-        flex-direction: row;
-        height: auto;
-        padding: 1rem;
-        position: static;
-        background-color: transparent;
-    }
-
-    .hamburger {
-        display: none;
-    }
-}
-
-
 main {
     color: var(--light-bg-color);
     z-index: -2;
@@ -220,7 +219,6 @@ main {
 
 .main-header {
     min-height: 100vh;
-    border-radius: 0 0 20% 20%;
     background-image: url("./images/young-couple-looking-their-cute-dog-park.jpg");
     background-position: center;
     background-size: cover;
@@ -290,8 +288,136 @@ main {
 
 
 .main-container {
-    border: 2px solid green;
-    width: min(90%, 1200px);
     margin: 0 auto;
+    color: black;
+}
+
+@keyframes fadeSlideUp {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+
+.animated-element {
+    opacity: 0; /* Start invisible */
+    transform: translateY(30px); /* Start with an offset */
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+
+.animate {
+    animation: fadeSlideUp 0.8s forwards ease;
+    animation-delay: .5s;
+}
+
+.main-container .banner {
+    background-image: url(./images/repeating-banner.jpg);
+    background-position: center;
+    background-repeat: repeat;
+    background-size: contain;
+    text-align: center;
+    position: relative;
+    padding-bottom: 2rem;
+    z-index: -1;
+}
+
+.main-container .banner::before {
+    content: "";
+    background-color: black;
+    position: absolute;
+    opacity: 0.03;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: -2;
+}
+
+.main-container .banner .banner-svg {
+    max-width: 300px;
+    margin: 0 auto;
+    
+}
+
+.main-container svg {
+    fill: var(--bg-color-two);
+    max-width: 100%;
+}
+
+.main-container .banner .banner-text p {
+    margin-top: 1rem;
+    margin-inline: 1rem;
+}
+
+.main-container .card-sec {
+    min-height: 20vh;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (min-width: 850px) {
+    .navigation {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .navigation h3 {
+        flex-shrink: 0;
+        white-space: nowrap;
+    }
+
+    .navigation .nav-links {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        gap: 1rem;
+        position: static;
+        height: auto;
+        padding: 0; 
+        width: auto;
+    }
+
+    .navigation .nav-links.menu {
+        display: flex; 
+        flex-direction: row;
+        height: auto;
+        padding: 1rem;
+        position: static;
+        background-color: transparent;
+    }
+
+    .hamburger {
+        display: none;
+    }
+
+    .side-bar {
+        flex-direction: column;
+        gap: 2rem;
+        padding: 1rem;
+        width: auto;
+        left: 0;
+        bottom: 5rem;
+        transform: none;
+        border-radius: 0 24px 24px 0;
+        border: 3px solid var(--bg-color-four);
+    }
 }
 
