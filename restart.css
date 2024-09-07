@@ -1,0 +1,265 @@
+@font-face {
+    font-family: 'wotfardregular';
+    src: url('fonts/wotfard-regular-webfont.woff2') format('woff2'),
+         url('fonts/wotfard-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+:root {
+    --font-size-biggest:clamp(2rem, 3vw + 1.5rem, 3.5rem);
+    --font-size-bigger: clamp(1.75rem, 2vw + 1rem, 2.5rem);
+    --font-size-big: clamp(1.25rem, 1.5vw + 0.75rem, 1.75rem);
+    --font-size-small: clamp(0.9rem, 1.2vw + 0.8rem, 1rem);
+    --light-color-one: #f8fafc;
+    --light-color-two: #f1f5f9;
+    --light-color-three: #e2e8f0;
+    --light-color-four: #cbd5e1;
+    --dark-color-one: #020617;
+    --dark-color-two: #0f172a;
+    --dark-color-three: #1e293b;
+    --dark-color-four:  #374151;
+    --accent-color-blue: #0D1282;
+    --accent-color-red: #D71313;
+    --accent-color-yellow: #F0DE36;
+    --accent-color-green: #367E18;
+    --accent-color-orange: #CD5C08; 
+}
+/* START CSS RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'wotfardregular', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+body {
+    line-height: 1.5;
+    background-color: var(--light-color-one);
+    color: var(--dark-color-three);
+    position: relative;
+}
+input, select, textarea, button {
+    font: inherit;
+}
+/* END CSS RESET */
+
+.header {
+    background-color: var(--light-color-one);
+    padding-inline: 1rem;
+    position: relative;
+}
+.hamburger {
+    background: none;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 25px;
+    height: 20px;
+    cursor: pointer;
+}
+.hamburger span{
+    display: block;
+    width: 100%;
+    height: 3px;
+    border-radius: 4px;
+    background-color: var(--dark-color-one);
+}
+.navigation {
+    margin: 0 auto;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.navigation h3 {
+    font-size: var(--font-size-big);
+}
+.navigation .nav-links {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    list-style: none;
+}
+.nav-links a {
+    text-decoration: none;
+    letter-spacing: 1px;
+    font-size: var(--font-size-small);
+    font-weight: 600;
+    color: var(--dark-color-one);
+}
+.navigation .nav-links.menu {
+    position: absolute;
+    background-color: var(--light-color-one);
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    z-index: 2;
+}
+.navigation.active .nav-links.menu {
+    height: 210px;
+    box-shadow: 0px 4px 2px rgb(0, 0, 0);
+}
+.social-links {
+    border: 3px solid var(--dark-color-one);
+    border-bottom: none;
+    border-radius: 25px 25px 0 0;
+    background-color: var(--light-color-one);
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 10px 0 5px 0;
+}
+.social-links svg {
+    width: 40px;
+    height: 40px;
+    fill: var(--dark-color-one);
+    cursor: pointer;
+}
+.social-links a:nth-child(1) svg:hover {fill: #1877F2;}
+.social-links a:nth-child(2) svg:hover {fill: #037e18;}
+.social-links a:nth-child(3) svg:hover {fill: #c71610;}
+.social-links a:nth-child(4) svg:hover {fill: #f0b240;}
+.main {
+    color: var(--dark-color-one);
+}
+.main-hero-container {
+    min-height: 80vh;
+    background-image: url('./images/young-couple-looking-their-cute-dog-park.webp');
+    background-color: #020617;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+
+}
+.main-hero-container::before {
+    position: absolute;
+    content: "";
+    background-color: #4d4855;
+    background-image: linear-gradient(147deg, #4d4855 0%, #000000 74%);
+    opacity: .4;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+.main-hero-container > * {
+    z-index: 1;
+}
+.hero-logo-container img{
+    filter: invert(100%);
+    width: clamp(250px, 100%, 550px);
+}
+.hero-content-container h1 {
+    color: var(--light-color-one);
+    font-size: var(--font-size-biggest);
+}
+.hero-content-container button {
+    padding: .5rem 3.5rem;
+    margin-top: 1.6rem;
+    border: none;
+    border-radius: 26px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+    cursor: pointer;
+    background-color: var(--accent-color-orange);
+    color: white;
+}
+.main-section {
+    width: 100%;
+    margin-block: 3rem;
+}
+.section-text-container, .section-content-container {
+    padding-inline: 12px;
+    max-width: 1200px;
+    text-align: center;
+    margin: 0 auto;
+}
+.section-text-container .title {
+    color: var(--dark-color-one);
+    font-size: var(--font-size-bigger);
+    margin-block: 1rem;
+}
+.section-text-container .text {color: var(--dark-color-three);}
+.section-content-container {
+    margin: 0 auto;
+    max-width: 1200px;
+}
+.svg-container svg {
+    width: clamp(250px, 100%, 350px);
+    fill: burlywood;
+    stroke: brown;
+    stroke-width: .3;
+}
+.cards-container {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+.cards-container .card {
+    background-color: #c3cbdc;
+    background-image: linear-gradient(147deg, var(--light-color-three) 0%, var(--light-color-one) 74%);
+    box-shadow: -2px -2px 4px white, 4px 4px 4px #5a5a5a;
+    border-radius: 12px;
+    padding: 1rem;
+    width: 100%;
+}
+.card svg {
+    width: 100px;
+    height: 100px;
+}
+.card .red {fill: var(--accent-color-red);}
+.card .green {fill: var(--accent-color-green);}
+.card .blue {fill: var(--accent-color-blue);}
+.card .brown {fill: var(--accent-color-yellow);}
+.card .card-title, .card .card-description {text-align: left;}
+.card .card-title {
+    color: var(--accent-color-orange);
+    font-size: var(--font-size-big);
+    font-weight: 600;
+    margin-block: 10px;
+}
+.child-container {
+    margin-bottom: 3rem;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+h5.text {
+    font-size: var(--font-size-small);
+    letter-spacing: 2px;
+    font-weight: 400;
+    margin-bottom: 3rem;
+}
+.child-container .image-child-container {
+    width: clamp(300px, 100%, 850px);
+}
+.image-child-container img {
+    max-width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+.text-child-container {padding-inline: 1rem;}
+.text-child-container h4 {
+    margin-top: 1rem;
+    padding-left: 12px;
+    border-left: 4px solid var(--accent-color-orange);
+    font-size: var(--font-size-big);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.text-child-container p {margin-top: 1rem;}
