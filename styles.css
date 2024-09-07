@@ -453,7 +453,7 @@ main {
 
 }
 
-@media (prefers-color-scheme: light) {
+@media (prefers-color-scheme: dark) {
     :root {
         --light-color-one: #020617;
         --light-color-two: #0f172a;
