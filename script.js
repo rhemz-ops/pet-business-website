@@ -1,3 +1,9 @@
+window.onload = function() {
+    // Hide the loader after the page is fully loaded
+    document.querySelector('.loader-wrapper').style.display = 'none';
+  }
+  
+
 document.addEventListener('DOMContentLoaded', () => {
     let lastScrollTop = 0; // Keep track of last scroll position
     const header = document.querySelector('.header');
