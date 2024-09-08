@@ -68,8 +68,8 @@ input, select, textarea, button {
     margin: 0 auto;
     max-width: 1200px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
 }
 .navigation h3 {
     font-size: var(--font-size-big);
@@ -132,7 +132,7 @@ input, select, textarea, button {
     color: var(--dark-color-one);
 }
 .main-hero-container {
-    min-height: 80vh;
+    min-height: 90vh;
     background-image: url('./images/young-couple-looking-their-cute-dog-park.webp');
     background-color: #020617;
     background-size: cover;
@@ -263,3 +263,36 @@ h5.text {
     letter-spacing: 1px;
 }
 .text-child-container p {margin-top: 1rem;}
+@media (min-width: 768px) {
+    .nav-links {
+        height: auto;
+        width: auto;
+        padding: 0;
+        position: static;
+        flex: 1;
+    }
+    .nav-logo {
+        flex-shrink: 0;
+    }
+    .navigation .nav-links.menu {
+        flex-direction: row;
+        justify-content: flex-end;
+        position: static;
+        height: auto;
+    }
+    .hamburger{
+        display: none;
+    }
+    .social-links {
+        border: 3px solid var(--dark-color-one);
+        border-left: none;
+        border-radius: 0 25px 25px 0;
+        width: auto;
+        bottom: 30%;
+        left: 0;
+        flex-direction: column;
+        transform: none;
+        align-items: center;
+        padding: 1rem
+    }
+}
